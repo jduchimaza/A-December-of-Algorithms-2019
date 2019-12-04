@@ -27,7 +27,7 @@ def h_index(N, papers):
    pprs.sort()
    pprs = pprs[::-1]
    # An author has index h if at least h of his N papers have h citations each
-   # Iterate through the list and find the index for which the # of citations is higher than that index
+   # Iterate through the list and find the index for which the # of citations is lower than the given index
    while h < N and pprs[h] > h: h+=1
    return h
 
