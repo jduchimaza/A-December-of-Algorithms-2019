@@ -13,10 +13,15 @@ def csv2html(csvfile):
       csvr = csv.reader(csvf,skipinitialspace=True)
       html = open('html_res.html','w+')
       html.write('<html>\n\t<body>\n\t\t<table>\n') #Write the html tags needed
+      header = True
       for row in csvr:
          html.write('\t\t\t<tr>') #Write tags for table row
          for col in row:
-            html.write('<th>'+str(col)+'</th>') # Add a cell to the row
+            if header: 
+               html.write('<th>'+str(col)+'</th>') # Add a cell to the row
+            else:
+               html.write('<td>'+str(col)+'</td>')
+         header = False
          html.write('</tr>\n') #Write tags to close table row
       html.write('\t\t</table>\n\t</body>\n</html>') #Write the closing tags
       html.close()
