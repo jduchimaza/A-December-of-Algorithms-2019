@@ -1,4 +1,4 @@
-# sevenish_number
+# h_index
 # Brief: Algorithm to find the h-index given a list of # of citations 
 #        corresponding to papers written by an author.
 # Author: Juan D.H.
