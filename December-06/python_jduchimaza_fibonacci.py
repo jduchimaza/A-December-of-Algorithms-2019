@@ -1,16 +1,25 @@
+# fibonacci  
+# Brief: Find the first n prime numbers in the Fibonacci sequence
+# Author: Juan D.H.
+# Date:   6 Dec 2019 (comp 11 Dec)
+# 
+# This function was written as part of 'A December of Algorithms'
+#----------------------------------------------------------------
+
 '''
 Henry wants to generate prime numbers present in the Fibonacci Series. He needs your help to generate them.
 For example, suppose N = 3
 Then the series will have 3 Fibonacci prime numbers : 2,3,5
 Given the count of prime numbers needed by Henry , compute the series for him.
 '''
+from math import sqrt
 
 # function isPrime
 # takes in an integer n
 # returns True if the integer is a prime number
 def isPrime(n):
    if n>1:
-      for i in range(2,n//2):
+      for i in range(2,int(sqrt(n))+1):
          if n%i == 0:
             return False
       return True
@@ -18,26 +27,21 @@ def isPrime(n):
       return False
 
 
-# function fibonacci
-# takes in an integer n
-# returns the nth number in the fibonacci number sequence
-def fibonacci(n):
-   if n == 1 or n == 2:
-      return int(1)
-   else:
-      return int(fibonacci(n-1)+fibonacci(n-2))
-
-# functino primeFib
+# function primeFib
 # takes in an integer n
 # returns a Fibonacci sequence with length n
 #   that includes only prime numbers
 def primeFib(n):
    seq = []
+   a=1
+   b=1
    i = 1
    while len(seq)!=n:
-      fib = fibonacci(i)
+      fib = b
+      b = b+a
+      a = fib
       if(isPrime(fib)):
-         seq.append(fibonacci(i))
+         seq.append(fib)
       i+=1
    return seq
       
